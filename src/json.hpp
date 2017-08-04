@@ -1,27 +1,18 @@
 #ifndef JSON_HPP
 #define JSON_HPP
 
-#include "json.tpp"
-
-#include "parse.hpp"
+// look ma, no dependence on #include order!
+// TODO: uh, should verify that...
 #include "dummy.hpp"
+#include "parse.hpp"
+#include "json-skel.hpp"
 
-#include <vector>
-
-class Json
+template<typename T>
+T Json::parse() const
 {
-    // ...
-
-public:
-    template<typename T>
-    T parse() const
-    {
-        // explicitly use something from parse.hpp
-        return parse_json(*this, dummy<T>());
-    }
-
-    std::vector<Json> elements() const;
-};
+    // explicitly use something from parse.hpp
+    return parse_json(*this, dummy<T>());
+}
 
 // Just to make things interesting, let's force an instantiation.
 // Now, parse.hpp is REALLY required!

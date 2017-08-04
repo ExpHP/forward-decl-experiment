@@ -1,0 +1,33 @@
+digraph block {
+    MAIN_CPP[label="json.cpp" style=filled fillcolor="#D3BCCC"];
+    PARSE_CPP[label="parse.cpp" style=filled fillcolor="#D3BCCC"];
+    JSON_CPP[label="json.cpp" style=filled fillcolor="#D3BCCC"];
+
+    PARSE_HPP[label="parse.hpp" style=filled fillcolor="#F5CAC3"];
+    JSON_SKEL_HPP[label="json-skel.hpp" style=filled fillcolor="#F5CAC3"];
+    DUMMY_HPP[label="dummy.hpp" style=filled fillcolor="#F5CAC3"];
+    JSON_HPP[label="json.hpp" style=filled fillcolor="#F5CAC3"];
+
+    PARSE_TPP[label="parse.tpp" style=filled fillcolor="#9EBC9F"];
+    JSON_SKEL_TPP[label="json-skel.tpp" style=filled fillcolor="#9EBC9F"];
+    DUMMY_TPP[label="dummy.tpp" style=filled fillcolor="#9EBC9F"];
+
+    MAIN_CPP -> JSON_HPP;
+    PARSE_CPP -> PARSE_HPP;
+    JSON_CPP -> JSON_HPP;
+
+    JSON_HPP -> DUMMY_HPP;
+    JSON_HPP -> PARSE_HPP;
+    JSON_HPP -> JSON_SKEL_HPP;
+
+    JSON_SKEL_HPP -> JSON_SKEL_TPP;
+
+    PARSE_HPP -> PARSE_TPP;
+    PARSE_HPP -> DUMMY_HPP;
+    PARSE_HPP -> JSON_SKEL_HPP;
+
+    DUMMY_HPP -> DUMMY_TPP
+    
+    PARSE_TPP -> JSON_SKEL_TPP;
+    PARSE_TPP -> DUMMY_TPP;
+}

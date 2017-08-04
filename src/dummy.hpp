@@ -1,13 +1,15 @@
 #ifndef DUMMY_HPP
 #define DUMMY_HPP
 
-// NOTE: This is irrelevant to the demonstration.
+#include "dummy.tpp"
 
-/// This is just a dumb workaround for my current ineptitude at templates.
-///
-/// The point is to let a function have an argument that represents the
-/// return type, because reasoning about function overloads requires far less
-/// mental energy than reasoning about template specialization and SFINAE.
+// NOTE: This file WAS supposed to be irrelevant to the demonstration,
+//       but now it's an example of a file that might be forced to have
+//       a TPP simply because another TPP needs it. (even without cycles)
+//
+//       It is possible that the "no HPP imports in TPP" rule is too strict.
+//       Only time will tell.
+
 template<typename>
 struct dummy{
     void silence_unused_warning() {}

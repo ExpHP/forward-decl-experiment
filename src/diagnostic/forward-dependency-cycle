@@ -1,1 +1,2 @@
-#error Dependency cycle in forward declarations!
+#error Dependency cycle in forward declarations! \
+ (or, you forgot to #undef at the end of the file)

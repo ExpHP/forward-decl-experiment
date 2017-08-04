@@ -4,7 +4,7 @@
 #include "parse.tpp"
 
 #include "dummy.hpp"
-#include "json.hpp"
+#include "json-skel.hpp"
 
 #include <vector>
 

@@ -10,7 +10,8 @@ set(SOURCE_FILES
         src/parse.tpp
         src/json.cpp
         src/json.hpp
-        src/json.tpp
+        src/json-skel.hpp
+        src/json-skel.tpp
         src/diagnostic/forward-dependency-cycle
         src/dummy.hpp
         )
