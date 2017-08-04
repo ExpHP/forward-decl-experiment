@@ -52,6 +52,10 @@ Three lines are added near the bottom of the standard guard:
 
 Notice how this (a) detects cycles, and (b) no longer protects against multiple inclusion like the standard guard does. (Instead, you protect against that by not writing definitions!)
 
+### So it's like the TPP is the actual header, and the HPP is template implementations?  Why not call THOSE the TPP? It's perfect!!
+
+ehh, yeah, kinda, but I don't like the idea that the header guard of an HPP would depend on whether or not it has a TPP
+
 ### example code include graph
 
 ![Graph](https://g.gravizo.com/source/svg?https%3A%2F%2Fraw.githubusercontent.com%2FExpHP%2Fforward-decl-experiment%2Fmaster%2Fres%2Fincludes.dot)
