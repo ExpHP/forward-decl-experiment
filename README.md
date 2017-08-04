@@ -1,3 +1,6 @@
+### What is the code here?
+
+a bit of dummy example code that I tried to break a couple of times by adding ugly dependencies between headers, and then subsequently fixed by adding forward declaraion files ("TPP" files, the "T" stands for "please sort this after HPP").  I'm trying to find a good set of rules for when and how these files should be created so that the resulting process doesn't require too much brainpower.
 
 ### TPP file rules
 
