@@ -24,7 +24,7 @@ This requires to to produce more TPP files than strictly necessary for cycle res
     
 ### TPP include guard
 
-Two lines are added near the bottom of the standard guard:
+Three lines are added near the bottom of the standard guard:
 
 **`foo.tpp`**
 
@@ -46,6 +46,8 @@ Two lines are added near the bottom of the standard guard:
 #error Dependency cycle in forward declarations! \
  (or, you forgot to #undef at the end of the file)
 ```
+
+Notice how this (a) detects cycles, and (b) no longer protects against multiple inclusion like the standard guard does. (Instead, you protect against that by not writing definitions!)
 
 ### example code include graph
 
