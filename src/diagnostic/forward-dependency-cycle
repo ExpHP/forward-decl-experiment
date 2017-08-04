@@ -1,0 +1,1 @@
+#error Dependency cycle in forward declarations!
