@@ -31,4 +31,9 @@ std::vector<T> parse_json(const Json& json, dummy<std::vector<T>> d)
     return {};
 }
 
+// Do something that requires the complete type.
+// (chances are that any implementation of the vector version above would
+//  require it, but I could only manage to get warnings that way, not errors)
+static void f(Json json) {} // error: ‘json’ has incomplete type
+
 #endif // PARSE_HPP
