@@ -22,7 +22,7 @@ a bit of dummy example code that I tried to break a couple of times by adding ug
 For ease of reasoning about where TPPs are necessary, I further propose the following limitation: (subject to change)
 
 * A TPP is only included **by its own HPP** and **by other TPPs**
-* This implies that, if `a.tpp` includes `b.tpp`, and the files `a.hpp` and `b.hpp` both exist, then with almost complete certainty, `a.hpp` includes `b.hpp`.
+* This implies that, if `a.tpp` explicitly includes `b.tpp`, and the files `a.hpp` and `b.hpp` both exist, then with almost complete certainty, `a.hpp` explicitly includes `b.hpp`.
 
 This requires to to produce more TPP files than strictly necessary for cycle resolution, but I believe it is easier to reason about dependency cycles that exist **solely between declarations** than it is to reason about dependency cycles between declarations (TPP) and definitions (HPP).
     
