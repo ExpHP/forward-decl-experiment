@@ -1,3 +1,5 @@
+**Edit:** [nope, this sucks.](#wait-this-sucks-now)
+
 ### What is the code here?
 
 a bit of dummy example code that I tried to break a couple of times by adding ugly dependencies between headers, and then subsequently fixed by adding forward declaraion files ("TPP" files, the "T" stands for "please sort this after HPP").  I'm trying to find a good set of rules for when and how these files should be created so that the resulting process doesn't require too much brainpower.
@@ -62,3 +64,11 @@ ehh, yeah, kinda, but I don't like the idea that the header guard of an HPP woul
 ![Graph](https://g.gravizo.com/source/svg?https%3A%2F%2Fraw.githubusercontent.com%2FExpHP%2Fforward-decl-experiment%2Fmaster%2Fres%2Fincludes.dot)
 
 Actually, I was surprised to see that this is a DAG.  When I originally wrote the example, `parse.hpp` and `json.hpp` both included each other, but adding some TPPs forced me to break up json.hpp in a way that broke the cycle.
+
+---
+
+### Wait, this "sucks" now?
+
+...maybe.  I've been struggling to apply this to `sp2`, and then finally realized what I had done when splitting out json-skel in this codebase:
+
+In the code's current form, including `json-skel.hpp` includes a declaration for the template function `parse` which never gets defined.  I'm not sure what to think of this;  it seems harmless if we don't use the template; yet it feels wrong.
