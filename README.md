@@ -24,6 +24,22 @@ This requires to to produce more TPP files than strictly necessary for cycle res
     
 ### TPP include guard
 
+Two lines are added near the bottom of the standard guard:
+
+**`foo.tpp`**
+
+```c++
+#ifndef FOO_TPP
+#define FOO_TPP
+
+// ... declarations ONLY ...
+
+#undef FOO_TPP  // <-- NEW
+#else           // <-- NEW
+#include "diagnostic/forward-dependency-cycle"   // <-- NEW
+#endif
+```
+
 **`diagnostic/forward-dependency-cycle`**
 
 ```c++
@@ -31,21 +47,6 @@ This requires to to produce more TPP files than strictly necessary for cycle res
  (or, you forgot to #undef at the end of the file)
 ```
 
-**`foo.tpp`**
-
-```c++
-#ifdef  FOO_TPP
-#include "diagnostic/forward-dependency-cycle"
-#else
-#define FOO_TPP
-
-// ... declarations ONLY ...
-
-// end of tpp extra bits
-#undef FOO_TPP
-#endif
-```
-    
 ### example code include graph
 
 ![Graph](https://g.gravizo.com/source/svg?https%3A%2F%2Fraw.githubusercontent.com%2FExpHP%2Fforward-decl-experiment%2Fmaster%2Fres%2Fincludes.dot)
